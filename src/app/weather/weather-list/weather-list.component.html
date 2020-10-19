@@ -1,0 +1,12 @@
+<h1>openweathermap.org</h1>
+<div style="display: flex; justify-content: space-between; align-items: end; color: lightgray; font-size: 0.7rem;">
+    <div class="city">City</div>
+    <div class="wind">Wind</div>
+    <div class="temperature">Temperature</div>
+</div>
+<div *ngFor="let weatherItem of weatherList">
+    <a (click)="onCityWeather(weatherItem)">
+        <app-weather-item [weatherItem]="weatherItem">
+        </app-weather-item>
+    </a>
+</div>

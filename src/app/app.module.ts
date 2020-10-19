@@ -8,14 +8,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { WeatherItemComponent } from './weather-list/weather-item/weather-item.component';
-import { WeatherListComponent } from './weather-list/weather-list.component';
+import { WeatherItemComponent } from './weather/weather-list/weather-item/weather-item.component';
+import { WeatherListComponent } from './weather/weather-list/weather-list.component';
+import { WeatherCityComponent } from './weather/weather-city/weather-city.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherItemComponent,
-    WeatherListComponent
+    WeatherListComponent,
+    WeatherCityComponent,
   ],
   imports: [
     BrowserModule,

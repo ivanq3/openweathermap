@@ -1,0 +1,17 @@
+<div class="grad">
+    <button mat-button color="warn" (click)="goHome()">Go Back To City Selection</button>
+    <h1>Weather for {{ cityHour }}</h1>
+    <div *ngFor="let city of cityHourly">
+        <mat-card>
+            <div id="tabela">
+                <div>
+                    <div class="hour">{{ city.dt | date:'H:mm' }}</div>
+                    <div class="date">{{ city.dt | date:'dd-LLL' }}</div>
+                </div>
+                <div class="temperature">
+                    {{city.temp}}°C
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

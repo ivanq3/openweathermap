@@ -1,29 +1,32 @@
 mat-card {
-    min-width: 300px;
-    margin-bottom: 20px;
+    min-width: 200px;
+    margin-bottom: 10px;
 }
 
 #grad {
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
 }
 
 .city {
-    /* margin-left: -20%; */
-    min-width: 200px;
+    min-width: 100px;
     text-align: left;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .wind {
     text-align: right;
     min-width: 50px;
+    color: gray;
 }
 
 .temperature {
     font-size: medium;
     text-align: right;
     min-width: 50px;
-    /* margin-right: -20%; */
+    font-size: 1.2rem;
+    font-weight: 500;
 }
