@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 import { weatherModel } from '../weather.model';
 
@@ -37,12 +38,19 @@ export class WeatherListComponent implements OnInit, OnDestroy {
     this.getWeatherList();
   }
 
+  removeLink(){
 
-  ngOnDestroy() {
-    this.httpSub.unsubscribe();
   }
-
+  
   onCityWeather(weatherItem:any) {
     this.router.navigate(['/','city',weatherItem.city]);
+  }
+
+  drop(event: CdkDragDrop<any[]>) {
+    moveItemInArray(this.weatherList, event.previousIndex, event.currentIndex);
+  }
+  
+  ngOnDestroy() {
+    this.httpSub.unsubscribe();
   }
 }

@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppComponent } from './app.component';
 import { WeatherItemComponent } from './weather/weather-list/weather-item/weather-item.component';
@@ -27,6 +28,7 @@ import { WeatherCityComponent } from './weather/weather-city/weather-city.compon
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

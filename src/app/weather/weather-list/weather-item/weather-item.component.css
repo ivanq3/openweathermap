@@ -1,9 +1,16 @@
 mat-card {
     min-width: 200px;
     margin-bottom: 10px;
+    transition: transform .3s ease-in-out;
+    cursor: move;
 }
 
-#grad {
+mat-card:hover {
+    background-color: lightskyblue;
+    transform: scale(1.06);
+}
+
+#city-all {
     border-radius: 5px;
     display: flex;
     justify-content: space-between;

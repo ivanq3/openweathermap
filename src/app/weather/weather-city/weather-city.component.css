@@ -17,6 +17,7 @@ h1 {
 mat-card {
     width: 40%;
     margin: 5px auto;
+    min-width: 100px;
 }
 
 .hour {

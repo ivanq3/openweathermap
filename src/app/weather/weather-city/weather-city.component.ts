@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { Location } from '@angular/common';
 
 enum cities { 'Belgrade', 'Nis', 'Munich', 'London', 'Madrid' };
 
@@ -27,7 +28,7 @@ export class WeatherCityComponent implements OnInit {
   private url: string = '';
   cityHourly : { dt: number, temp: number}[] = [];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient ) {}
+  constructor(private _location: Location, private activatedRoute: ActivatedRoute, private http: HttpClient ) {}
 
   private checkCity(city) {
     if (city in cities) {
@@ -77,25 +78,26 @@ export class WeatherCityComponent implements OnInit {
       this.cityHour = p.city;
       this.setLatLon(p.city);
       this.buildUrl();
+      
       this.http.get<any>(this.url)
-      .pipe(
-        map((resData) => {
-          return resData.hourly;
-        })
-      )
-      .subscribe((resData) => {
-        for(let i = 0; i < 48; i++){
-          let newTime : { dt: number, temp:number} = { dt : null, temp: null};
-          newTime.dt = resData[i].dt*1000;
-          newTime.temp = Math.round(resData[i].temp);
-          this.cityHourly.push(newTime);
-        }
+        .pipe(
+          map((resData) => {
+            return resData.hourly;
+          })
+        )
+        .subscribe((resData) => {
+          for(let i = 0; i < 48; i++){
+            let newTime : { dt: number, temp:number} = { dt : null, temp: null};
+            newTime.dt = resData[i].dt*1000;
+            newTime.temp = Math.round(resData[i].temp);
+            this.cityHourly.push(newTime);
+          }
       });
     })
   }
 
   goHome() {
-    this.router.navigateByUrl('');
+    this._location.back();
   }
 
 }
